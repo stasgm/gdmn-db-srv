@@ -1,0 +1,1 @@
+{"version":3,"file":"Semaphore.d.ts","sourceRoot":"","sources":["../../src/Semaphore.ts"],"names":[],"mappings":"AAEA,qBAAa,SAAS;IAEpB,OAAO,CAAC,QAAQ,CAAS;IACzB,OAAO,CAAC,MAAM,CAAgB;gBAElB,KAAK,GAAE,MAAU;aAIzB,OAAO,EAAI,MAAM;IAIR,OAAO,IAAI,OAAO,CAAC,IAAI,CAAC;IAS9B,OAAO,IAAI,IAAI;CAcvB"}
