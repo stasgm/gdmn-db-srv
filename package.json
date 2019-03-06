@@ -1,16 +1,12 @@
 {
   "name": "node-typescript-webpack-starter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "This is a simple REST API developed using node and express with typescript",
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
     "dev": "nodemon",
     "build": "shx rm -rf dist && tsc",
-    "start2": "start http://localhost:3000/ && node ./dist/bundle.js",
-    "start:w": "webpack --watch",
-    "watch:server": "nodemon \"./dist/bundle.js\" --watch \"./src\" ",
-    "build:w": "webpack",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,6 +15,7 @@
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/register": "^7.0.0",
+    "@types/body-parser": "^1.17.0",
     "@types/dotenv": "^6.1.0",
     "@types/express": "^4.16.1",
     "@types/node": "^11.9.6",
@@ -35,6 +32,7 @@
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "gdmn-db": "file:packages/gdmn-db"

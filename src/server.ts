@@ -1,11 +1,11 @@
-import express from 'express';
+import express, { Application } from 'express';
 import dotenv from 'dotenv';
 import { AConnectionPool, IConnectionOptions, ATransaction, Factory } from 'gdmn-db';
 
 dotenv.config();
 const port = process.env.SERVER_PORT || 8080;
 
-const app = express();
+const app: Application = express();
 
 const connect = async () => {
   const driver = Factory.FBDriver;
@@ -43,7 +43,15 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(port, () => {
-  console.log(`App listening to ${port}....`);
-  console.log('Press Ctrl+C to quit.');
+app.get('/api/v1/contact', (req, res) => {
+  connect().catch(err => {
+    console.log(err);
+  });
+  res.send('Hello World!');
+});
+
+app.listen(port, (err: any) => {
+  if (err) return err;
+  console.info(`Server running on : http://localhost:${port}`);
+  console.info('Press Ctrl+C to quit.');
 });

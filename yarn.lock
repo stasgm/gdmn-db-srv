@@ -629,7 +629,7 @@
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
   integrity sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA==
 
-"@types/body-parser@*":
+"@types/body-parser@*", "@types/body-parser@^1.17.0":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.17.0.tgz#9f5c9d9bd04bb54be32d5eb9fc0d8c974e6cf58c"
   integrity sha512-a2+YeUjPkztKJu5aIF2yArYFQQp8d51wZ7DavSHjFuY1mqVgidGyzEQ41JIVNy82fXj8yPgy2vJmfIywgESW6w==
@@ -1136,7 +1136,7 @@ bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
   integrity sha512-ItfYfPLkWHUjckQCk8xC+LwxgK8NYcXywGigJgSwOP8Y2iyWT4f2vsZnoOXTTbo+o5yXmIUJ4gn5538SO5S3gA==
 
-body-parser@1.18.3:
+body-parser@1.18.3, body-parser@^1.18.3:
   version "1.18.3"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.18.3.tgz#5b292198ffdd553b3a0f20ded0592b956955c8b4"
   integrity sha1-WykhmP/dVTs6DyDe0FkrlWlVyLQ=
@@ -2280,7 +2280,7 @@ gauge@~2.7.3:
 "gdmn-db@file:packages/gdmn-db":
   version "1.0.0"
   dependencies:
-    gdmn-internals "file:C:/Users/Стас/AppData/Local/Yarn/Cache/v4/npm-gdmn-db-1.0.0-7f498fb2-a5b0-4baa-ac96-31c3b129b527-1551806229417/node_modules/gdmn-db/packages/gdmn-internals"
+    gdmn-internals "file:C:/Users/Стас/AppData/Local/Yarn/Cache/v4/npm-gdmn-db-1.0.0-c9caf576-3383-4da7-a526-d258194148f8-1551857676008/node_modules/gdmn-db/packages/gdmn-internals"
     generic-pool "^3"
     node-firebird-native-api "^0"
 
