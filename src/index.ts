@@ -1,12 +1,12 @@
-import { Application } from 'express';
 import * as bodyParser from 'body-parser';
-import morgan from 'morgan';
-import * as fs from 'fs';
-import * as path from 'path';
-import { AppConfig } from './config/config';
-import helmet from 'helmet';
+import { Application } from 'express';
 import rateLimit from 'express-rate-limit';
+import * as fs from 'fs';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import * as path from 'path';
 
+import { AppConfig } from './config/config';
 import { unCoughtErrorHandler } from './handlers/errorHandler';
 import { Routes } from './routes';
 
@@ -20,12 +20,11 @@ const limiter = new rateLimit({
 export class Server {
   constructor(app: Application) {
     this.config(app);
-    // tslint:disable-next-line:no-unused-expression
-    new Routes(app);
+    const routes = new Routes(app);
   }
 
   public config(app: Application): void {
-    AppConfig();
+    // AppConfig();
     const accessLogStream: fs.WriteStream = fs.createWriteStream(
       path.join(__dirname, './logs/access.log'),
       { flags: 'a' }

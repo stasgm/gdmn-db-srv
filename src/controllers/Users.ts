@@ -1,19 +1,18 @@
-/* import { NextFunction, Request, Response, Router } from 'express';
+import { NextFunction, Request, Response, Router } from 'express';
+
 import { apiErrorHandler } from '../handlers/errorHandler';
-import LessonRepo from '../repositories/LessonsRepo';
+import { userRepo } from '../repositories/Users';
 
-export default class LessonRoutes {
-  constructor() {}
-
-  getAllLessons(req: Request, res: Response, next: NextFunction) {
-    LessonRepo.getAllLessons({ order: ['seqNo'] })
+export class LessonRoutes {
+  public getAllUsers(req: Request, res: Response, next: NextFunction) {
+    userRepo.getAllUsers()
       .then(result => res.json(result))
       .catch(err => {
         apiErrorHandler(err, req, res, 'Fetch All Lessons failed.');
       });
   }
 
-  getLessonByCourse(req: Request, res: Response, next: NextFunction) {
+/*   getLessonByCourse(req: Request, res: Response, next: NextFunction) {
     LessonRepo.getLessonByCourse(req.params.id)
       .then(result => res.json(result))
       .catch(err => {
@@ -72,5 +71,5 @@ export default class LessonRoutes {
           `deletion of Lesson ${req.params.id}  is failed.`
         );
       });
-  }
-} */
+  } */
+}
