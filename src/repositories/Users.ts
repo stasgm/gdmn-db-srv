@@ -1,7 +1,7 @@
 import { Users } from '../models/User';
 
 class UserRepo {
-  public getAllUsers() {
+  public async getAllUsers() {
     return Users;
   }
 

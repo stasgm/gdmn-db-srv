@@ -7,7 +7,9 @@ import { Server } from './index';
 dotenv.config();
 
 const app: express.Application = express();
-const server: Server = new Server(app);
+// const server: Server =
+// tslint:disable-next-line:no-unused-expression
+new Server(app);
 // const port: number = nconf.get('http:port');
 const port: number = 3000;
 

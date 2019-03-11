@@ -14,21 +14,23 @@ import { Routes } from './routes';
 
 const limiter = new rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  max: 100 // limit each IP to 100 requests per windowMs
 });
 
 export class Server {
+  public routes: any;
+
   constructor(app: Application) {
     this.config(app);
-    const routes = new Routes(app);
+    // tslint:disable-next-line:no-unused-expression
+    this.routes = new Routes(app);
   }
 
   public config(app: Application): void {
     // AppConfig();
-    const accessLogStream: fs.WriteStream = fs.createWriteStream(
-      path.join(__dirname, './logs/access.log'),
-      { flags: 'a' }
-    );
+    const accessLogStream: fs.WriteStream = fs.createWriteStream(path.join(__dirname, './logs/access.log'), {
+      flags: 'a'
+    });
     app.use(morgan('combined', { stream: accessLogStream }));
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());

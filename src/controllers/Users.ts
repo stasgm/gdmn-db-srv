@@ -3,16 +3,17 @@ import { NextFunction, Request, Response, Router } from 'express';
 import { apiErrorHandler } from '../handlers/errorHandler';
 import { userRepo } from '../repositories/Users';
 
-export class LessonRoutes {
+class UserRoutes {
   public getAllUsers(req: Request, res: Response, next: NextFunction) {
-    userRepo.getAllUsers()
+    userRepo
+      .getAllUsers()
       .then(result => res.json(result))
       .catch(err => {
         apiErrorHandler(err, req, res, 'Fetch All Lessons failed.');
       });
   }
 
-/*   getLessonByCourse(req: Request, res: Response, next: NextFunction) {
+  /*   getLessonByCourse(req: Request, res: Response, next: NextFunction) {
     LessonRepo.getLessonByCourse(req.params.id)
       .then(result => res.json(result))
       .catch(err => {
@@ -73,3 +74,5 @@ export class LessonRoutes {
       });
   } */
 }
+
+export const userRoutes = new UserRoutes();

@@ -1,12 +1,12 @@
 import { Application } from 'express';
 
-import * as UserCtrl from './controllers/Users';
+import { userRoutes } from './controllers/Users';
 
 // import LessonsCtrl from './controllers/LessonsCtrl';
 // import { LessonValidator, lessonSchema } from './validators/lessonValidator';
 
 export class Routes {
-  userCtrl = new UserCtrl();
+  public userCtrl = userRoutes;
   // lessonsCtrl = new LessonsCtrl();
   // coursesCtrl = new CoursesCtrl();
 
@@ -14,7 +14,7 @@ export class Routes {
 
   constructor(app: Application) {
     // course reoutes
-    app.route('/api/courses/').get(this.coursesCtrl.getAllCourses);
+    app.route('/api/users/').get(this.userCtrl.getAllUsers);
     // app.route('/api/courses/').get(() => ({data: []}));
 /*     app.route('/api/courses/').get(this.coursesCtrl.getAllCourses);
     app.route('/api/courses/:id').get(this.coursesCtrl.getCourseDetails);
