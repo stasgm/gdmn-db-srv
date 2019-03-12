@@ -1,6 +1,6 @@
 import { Application } from 'express';
 
-import { userRoutes } from './controllers/Users';
+import { userRoutes } from './controllers/UserContoller';
 
 // import LessonsCtrl from './controllers/LessonsCtrl';
 // import { LessonValidator, lessonSchema } from './validators/lessonValidator';
@@ -13,9 +13,8 @@ export class Routes {
   // lessonValidator = new LessonValidator();
 
   constructor(app: Application) {
-    // course reoutes
+    // user routes
     app.route('/api/users/').get(this.userCtrl.getAllUsers);
-    // app.route('/api/courses/').get(() => ({data: []}));
 /*     app.route('/api/courses/').get(this.coursesCtrl.getAllCourses);
     app.route('/api/courses/:id').get(this.coursesCtrl.getCourseDetails);
 

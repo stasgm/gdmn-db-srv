@@ -1,12 +1,12 @@
-import { Users } from '../models/User';
+import { userModel } from '../models';
 
 class UserRepo {
   public async getAllUsers() {
-    return Users;
+    return userModel;
   }
 
   public getById(userId: number) {
-    return Users.filter(i => i.id = userId);
+    return userModel.filter(i => i.id = userId);
   }
 }
 

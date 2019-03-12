@@ -22,7 +22,6 @@ export class Server {
 
   constructor(app: Application) {
     this.config(app);
-    // tslint:disable-next-line:no-unused-expression
     this.routes = new Routes(app);
   }
 
@@ -39,3 +38,9 @@ export class Server {
     app.use(unCoughtErrorHandler);
   }
 }
+
+const cleanUp = () => {
+  console.log('bye!');
+}
+
+process.on('SIGINT', cleanUp);
