@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
     "dev": "nodemon",
-    "build": "shx rm -rf dist && tsc",
+    "serve": "ts-node src/server.ts",
+    "build-ts": "shx rm -rf dist && tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
