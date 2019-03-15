@@ -41,11 +41,15 @@ class FirebirdDB {
   }
 
   public async read(table: ITableModel): Promise<any> {
-    const resultSet = await this.connection.executeQuery(this.transaction, `select * from gd_user`);
+    const resultSet = await this.connection.executeQuery(
+      this.transaction,
+      `select ${Object.keys(table.fields).join(', ')} from ${table.name}`
+    );
 
     const result = [];
     while (await resultSet.next()) {
-      result.push(resultSet.getString('ID'));
+      result.push(resultSet.getString('id'));
+      // result.push(Object.keys(table.fields).map(i => ({ i: resultSet.getString(i) })));
     }
 
     await resultSet.close();
