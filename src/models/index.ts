@@ -1,10 +1,10 @@
-import { Field } from 'gdmn-db';
-
-export { userModel } from './user';
+export { getData } from './user';
+import { Types } from 'gdmn-db';
 
 export interface ITableModel {
   name: string;
   fields: {
-    [name: string]: string;
+    [name: string]: Types;
   };
 }
+

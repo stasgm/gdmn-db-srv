@@ -9,7 +9,7 @@ class UserRoutes {
       .getAllUsers()
       .then(result => res.json(result))
       .catch(err => {
-        apiErrorHandler(err, req, res, 'Fetch All Lessons failed.');
+        apiErrorHandler(err, req, res, 'Fetch All Users failed.');
       });
   }
 

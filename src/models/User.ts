@@ -1,12 +1,13 @@
-import { FieldType } from 'gdmn-db';
+import { Types } from 'gdmn-db';
+import { db } from '../db';
+import { ITableModel } from './';
 
-export const userModel = {
+const userModel: ITableModel = {
   name: 'gd_user',
   fields: {
-    id: FieldType.INTEGER,
-    name: FieldType.VARCHAR
+    id: Types.INTEGER,
+    name: Types.VARCHAR
   }
 };
 
-
-read
+export const getData = () => db.read(userModel);

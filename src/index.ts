@@ -9,6 +9,7 @@ import * as path from 'path';
 import { AppConfig } from './config/config';
 import { unCoughtErrorHandler } from './handlers/errorHandler';
 import { Routes } from './routes';
+import { db } from './db';
 
 // app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 
@@ -23,6 +24,7 @@ export class Server {
   constructor(app: Application) {
     this.config(app);
     this.routes = new Routes(app);
+    db.connect();
   }
 
   public config(app: Application): void {
