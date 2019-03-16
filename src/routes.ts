@@ -14,7 +14,12 @@ export class Routes {
 
   constructor(app: Application) {
     // user routes
-    app.route('/api/users/').get(this.userCtrl.getAllUsers);
+    app.route('/api/users/').get(this.userCtrl.getAllUsers, (req, res) => res.json({
+
+      headers: req.headers,
+      userAgent: req.get('user-agent'),
+      "Content-Type": "application/json"
+    }));
 /*     app.route('/api/courses/').get(this.coursesCtrl.getAllCourses);
     app.route('/api/courses/:id').get(this.coursesCtrl.getCourseDetails);
 

@@ -46,14 +46,21 @@ class FirebirdDB {
       `select ${Object.keys(table.fields).join(', ')} from ${table.name}`
     );
 
-    const result = [];
+    const fields = [];
     while (await resultSet.next()) {
-      result.push(resultSet.getString('id'));
-      // result.push(Object.keys(table.fields).map(i => ({ i: resultSet.getString(i) })));
+      // result.push(resultSet.getString('ID'));
+      const obj: any = {}
+      Object.keys(table.fields).forEach(i => obj[i] = resultSet.getString(i.toUpperCase()));
+      fields.push(obj);
     }
 
     await resultSet.close();
-    return result;
+
+    const res = {
+      table_name: table.name,
+      fields
+    }
+    return res;
   }
 }
 

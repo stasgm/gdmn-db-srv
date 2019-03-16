@@ -29,6 +29,9 @@ export class Server {
 
   public config(app: Application): void {
     // AppConfig();
+    if (!fs.existsSync(path.join(__dirname, './logs/'))) {
+      fs.mkdirSync(path.join(__dirname, './logs/'));
+    }
     const accessLogStream: fs.WriteStream = fs.createWriteStream(path.join(__dirname, './logs/access.log'), {
       flags: 'a'
     });
@@ -41,8 +44,9 @@ export class Server {
   }
 }
 
-const cleanUp = () => {
+const cleanUp = async () => {
+  await db.disconnect();
   console.log('bye!');
-}
+};
 
 process.on('SIGINT', cleanUp);
