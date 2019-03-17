@@ -6,7 +6,8 @@ const userModel: ITableModel = {
   name: 'gd_user',
   fields: {
     id: Types.INTEGER,
-    name: Types.VARCHAR
+    name: Types.VARCHAR,
+    contactkey: Types.INTEGER
   }
 };
 

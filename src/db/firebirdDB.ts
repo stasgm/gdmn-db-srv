@@ -48,7 +48,6 @@ class FirebirdDB {
 
     const fields = [];
     while (await resultSet.next()) {
-      // result.push(resultSet.getString('ID'));
       const obj: any = {}
       Object.keys(table.fields).forEach(i => obj[i] = resultSet.getString(i.toUpperCase()));
       fields.push(obj);
