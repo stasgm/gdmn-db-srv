@@ -1,17 +1,12 @@
 import * as dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
-import * as nconf from 'nconf';
 
 import { Server } from './index';
 
-dotenv.config();
-
 const app: express.Application = express();
-// const server: Server =
-// tslint:disable-next-line:no-unused-expression
-new Server(app);
-// const port: number = nconf.get('http:port');
-const port: number = 3000;
+const server: Server = new Server(app);
+const port: number = Number(process.env.SERVER_PORT) || 3000;
 
 app.listen(port, 'localhost', (err: any) => {
   if (err) return err;

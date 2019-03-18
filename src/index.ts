@@ -5,8 +5,8 @@ import * as fs from 'fs';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import * as path from 'path';
+import cors from 'cors';
 
-import { AppConfig } from './config/config';
 import { unCoughtErrorHandler } from './handlers/errorHandler';
 import { Routes } from './routes';
 import { db } from './db';
@@ -39,6 +39,16 @@ export class Server {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use(helmet());
+    app.use(
+      cors({
+        allowedHeaders: ['sessionId', 'Content-Type', '*'],
+        exposedHeaders: ['sessionId'],
+        origin: '*',
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+        preflightContinue: false,
+
+      })
+    );
     app.use(limiter); //  apply to all requests
     app.use(unCoughtErrorHandler);
   }
@@ -46,7 +56,8 @@ export class Server {
 
 const cleanUp = async () => {
   await db.disconnect();
-  console.log('bye!');
+  console.log("kiss and goodbye!")
+  process.exit();
 };
 
 process.on('SIGINT', cleanUp);
